@@ -6,15 +6,20 @@ from openai import OpenAI
 from datetime import datetime, timedelta
 from dotenv import load_dotenv  # <--- Add this import
 
-# Load environment variables from .env file
-load_dotenv()
+# Force Python to look for .env in the same folder as the script
+script_dir = os.path.dirname(os.path.abspath(__file__))
+env_path = os.path.join(script_dir, '.env')
+load_dotenv(env_path)
 
-# --- CONFIGURATION ---
-# Get the key from the secure file
-API_KEY = os.getenv("OPENAI_API_KEY") 
+# Now try to get the key
+API_KEY = os.getenv("OPENAI_API_KEY")
+
+# Debugging print (it will print "None" if it fails, or "sk-..." if it works)
+# print(f"DEBUG: Key loaded is: {API_KEY}") 
 
 if not API_KEY:
-    raise ValueError("No API Key found! Check your .env file.")
+    raise ValueError(f"No API Key found! Checked path: {env_path}")
+
 
 AFFILIATE_TAG = "your-tag-20"
 OUTPUT_DIR = "public/content"
@@ -161,4 +166,4 @@ def run_batch_job(days_to_generate=1, start_date=None):
 
 if __name__ == "__main__":
     # Generate content for the next 7 days
-    run_batch_job(days_to_generate=1)
+    run_batch_job(days_to_generate=2)
