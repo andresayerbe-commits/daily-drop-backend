@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Book Drop</title>
+    <style>
+        :root {
+            --bg-color: #f4f1ea; /* Paper color */
+            --text-color: #2c2c2c;
+            --accent-color: #e63946;
+            --card-bg: #ffffff;
+            --font-serif: 'Georgia', serif;
+            --font-sans: 'Helvetica Neue', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-sans);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 400px;
+            width: 100%;
+            background: var(--card-bg);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .header-date {
+            text-align: center;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #888;
+            padding-top: 20px;
+        }
+
+        .cover-container {
+            display: flex;
+            justify-content: center;
+            padding: 20px 0;
+            background: linear-gradient(to bottom, #fff 0%, #f9f9f9 100%);
+        }
+
+        .book-cover {
+            width: 160px;
+            height: 240px;
+            object-fit: cover;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+            border-radius: 4px;
+        }
+
+        .content {
+            padding: 0 25px 30px 25px;
+        }
+
+        .meta-tags {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            font-size: 0.75rem;
+            color: #666;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: #eee;
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+
+        h1 {
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            text-align: center;
+            margin: 0 0 5px 0;
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-size: 1rem;
+            text-align: center;
+            font-weight: 400;
+            color: #555;
+            margin: 0 0 25px 0;
+            font-style: italic;
+        }
+
+        .section-title {
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent-color);
+            margin-bottom: 5px;
+            margin-top: 20px;
+        }
+
+        p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin: 0;
+            color: #444;
+        }
+
+        .quote-box {
+            background-color: #f9f9f9;
+            border-left: 3px solid var(--accent-color);
+            padding: 15px;
+            margin-top: 20px;
+            font-family: var(--font-serif);
+            font-style: italic;
+            color: #555;
+        }
+
+        .cta-button {
+            display: block;
+            width: 100%;
+            padding: 15px 0;
+            background-color: var(--text-color);
+            color: #fff;
+            text-align: center;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 30px;
+            border-radius: 12px;
+            transition: background 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: var(--accent-color);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header-date">December 04, 2025</div>
+        
+        <div class="cover-container">
+            <img src="https://placehold.co/600x900/EEE/31343C?text=Classic+Literature" alt="Book Cover" class="book-cover">
+        </div>
+
+        <div class="content">
+            <div class="meta-tags">
+                <span class="tag">1994</span>
+                <span class="tag">Japan</span>
+                <span class="tag">Magical Realism</span>
+            </div>
+
+            <h1>The Wind-Up Bird Chronicle</h1>
+            <h2>by Haruki Murakami</h2>
+
+            <div class="section-title">The Plot</div>
+            <p>Toru Okada, an unassuming Tokyo man, finds his life turning upside down when his cat goes missing. As he searches for it, he encounters a series of bizarre characters, each with their own stories woven into a larger tapestry of strange events. What begins as a simple quest for his pet evolves into a deep exploration of loss, love, and the surreal aspects of reality. The narrative spirals into a blend of dreams, memories, and haunting ghostly elements, blurring the lines between the mundane and the extraordinary.</p>
+
+            <div class="section-title">The Buzz</div>
+            <p>This book has a dedicated following. Many readers either find it mesmerizing or baffling, leading to discussions about its complexities and meaning. It’s often described as a cult classic, with fans deeply engaged by its atmosphere and surreal plot, while others see it as a slow burn that can test patience.</p>
+
+            <div class="section-title">Why It Matters</div>
+            <p>Reading it now offers a chance to dive into a world that feels both bizarre and relatable, especially in today’s chaotic reality. Its exploration of personal and social disconnection resonates with many contemporary feelings of isolation and uncertainty.</p>
+
+            <div class="quote-box">
+                "Murakami’s prose flows like a dream; for instance, when he describes a seemingly ordinary moment, it’s imbued with a strange, haunting quality that lingers long after the words are read."
+            </div>
+
+            <a href="https://www.amazon.com/s?k=The+Wind-Up+Bird+Chronicle+Haruki+Murakami&tag=your-tag-20" target="_blank" class="cta-button">Buy This Book</a>
+        </div>
+    </div>
+
+</body>
+</html>
