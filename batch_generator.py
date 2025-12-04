@@ -84,14 +84,35 @@ def get_book_recommendation(exclude_list):
 
     return json.loads(response.choices[0].message.content)
 
-def get_cover_url(isbn):
-    url = f"https://covers.openlibrary.org/b/isbn/{isbn}-L.jpg?default=false"
+def get_cover_url(title, author):
+    """
+    Searches Google Books for the cover by Title + Author.
+    Much more reliable than AI-generated ISBNs.
+    """
     try:
-        r = requests.head(url, timeout=5)
-        if r.status_code == 200:
-            return url
-    except:
-        pass
+        # Prepare the search query
+        query = f"{title} {author}".replace(" ", "+")
+        url = f"https://www.googleapis.com/books/v1/volumes?q={query}&maxResults=1"
+        
+        # Call Google API
+        response = requests.get(url, timeout=5)
+        data = response.json()
+        
+        if "items" in data and len(data["items"]) > 0:
+            volume = data["items"][0]["volumeInfo"]
+            if "imageLinks" in volume:
+                images = volume["imageLinks"]
+                # Get the best available quality
+                cover_link = images.get("extraLarge") or images.get("large") or images.get("medium") or images.get("thumbnail")
+                
+                # Force HTTPS so browsers don't block it
+                if cover_link:
+                    return cover_link.replace("http://", "https://")
+                    
+    except Exception as e:
+        print(f"   ⚠️ Cover fetch warning: {e}")
+
+    # Fallback if Google fails
     return "https://placehold.co/600x900/EEE/31343C?text=Classic+Literature"
 
 def generate_affiliate_link(title, author):
@@ -126,7 +147,8 @@ def run_batch_job(days_to_generate=1, start_date=None):
             generated_titles.append(book['title']) # Add to exclude list
             
             # Enhance data
-            book['cover_url'] = get_cover_url(book.get('isbn', ''))
+            # NEW LINE:
+            book['cover_url'] = get_cover_url(book['title'], book['author'])
             book['buy_link'] = generate_affiliate_link(book['title'], book['author'])
             book['date_display'] = display_date
             book['date_id'] = date_str
