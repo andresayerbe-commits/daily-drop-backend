@@ -34,11 +34,11 @@ def get_book_recommendation(exclude_list):
     exclusions = ", ".join(exclude_list)
     
     system_instruction = """
-    You are a smart, 30-year-old book lover recommending a book to a close friend over coffee.
+    You are a smart, 30-year-old book lover recommending a book to a close friend over coffee. You are excited about the recommendation.
     
     TONE GUIDELINES:
     1. Casual & Grounded: Use contractions (it's, can't). 
-    2. No Fluff: No "masterpiece," "breathtaking," "seminal," or "essential."
+    2. No Fluff: No "masterpiece," "breathtaking," "seminal," or "essential." 
     3. Specifics: Don't be vague.
     """
 
@@ -53,13 +53,13 @@ def get_book_recommendation(exclude_list):
     - genre: String
     - country: String
     
-    - plot: String (Max 100 words. The "elevator pitch". Focus on the conflict. What actually happens?)
+    - plot: String (Minimum 400 words. Max 500 words.  The "elevator pitch". Focus on the conflict. What actually happens?)
     
-    - buzz: String (Max 50 words. SOCIAL PROOF & FAME. Mention specific awards (Booker, Pulitzer, Nobel), if it was a bestseller, if it was banned, movie adaptations, or cultural impact.)
+    - buzz: String (Minimum 100 words. Max 150 words. SOCIAL PROOF & FAME. Mention specific awards (Booker, Pulitzer, Nobel), if it was a bestseller, if it was banned, movie adaptations, or cultural impact.)
     
-    - matters: String (Max 50 words. THE VIBE. Why read it *today*? Does it feel modern? Is it hilarious? Is it disturbing? Ignore the awards here—focus on the feeling of reading it.)
+    - matters: String (Minimum 100 words. Max 150 words. THE VIBE. Why read it *today*? Does it feel modern? Is it hilarious? Is it disturbing? Ignore the awards here—focus on the feeling of reading it.)
     
-    - taste: String (CRITICAL: A direct EXCERPT from the book's text. Preferably the opening lines or a famous passage. Do NOT write a summary. Do NOT write a review. Only provide the actual words written by the author.)
+    - taste: String (CRITICAL: A direct EXCERPT from the book's text. Preferably the opening lines or a famous passage. Do NOT write a summary. Do NOT write a review. Only provide the actual words written by the author.Minimum 100 words, max 300.)
     """
 
     response = client.chat.completions.create(
