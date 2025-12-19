@@ -29,6 +29,24 @@
             padding: 40px 20px;
         }
 
+        /* Add this to your CSS */
+.logo-container {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.brand-logo {
+    max-width: 280px; /* Adjust this number to make it bigger/smaller */
+    width: 100%;
+    height: auto;
+    display: block;
+    /* optional: multiply blend mode helps drawings sit nicely on the cream background */
+    mix-blend-mode: multiply; 
+}
+
+/* Remove or comment out the old .brand-title class since we replaced it */
+
         .container {
             max-width: 450px;
             width: 100%;
@@ -39,6 +57,14 @@
         }
 
         /* --- Header Section --- */
+
+        .brand-image {
+
+            background-image: 'Dropa.Books1.png';
+        }
+
+
+
         .brand-title {
             font-family: var(--font-header);
             font-size: 3.5rem;
@@ -51,10 +77,10 @@
         .brand-subtitle {
             font-family: var(--font-header);
             font-size: 0.9rem;
-            border-top: 3px solid var(--black);
-            border-bottom: 3px solid var(--black);
-            padding: 5px 0;
-            margin-top: 5px;
+            border-top: 2px solid var(--black);
+            border-bottom: 2px solid var(--black);
+            padding: 15px 0;
+            margin-top: 15px;
             margin-bottom: 30px;
             width: 80%;
             text-transform: uppercase;
@@ -64,7 +90,7 @@
         /* --- Book Info Section --- */
         h1 {
             font-family: var(--font-header);
-            font-size: 2rem;
+            font-size: 1.5rem;
             line-height: 1.1;
             margin: 0 0 15px 0;
             color: var(--black);
@@ -203,10 +229,13 @@
         <div id="error-msg" style="display:none;">COME BACK TOMORROW</div>
 
         <div id="app-content">
-            <!-- Header -->
-            <div class="brand-title">DROPA</div>
-            <div class="brand-subtitle">Books, dropped like they're hot</div>
-
+            
+           <!-- Header -->
+<div class="logo-container">
+    <img src="Dropa.Books1.png" alt="Dropa Logo" class="brand-logo">
+</div>
+<!-- You can keep or remove the subtitle below depending on if it's in your drawing -->
+<div class="brand-subtitle">Books, dropped like they're hot</div>
             <!-- Title & Meta -->
             <h1 id="title">...</h1>
             
